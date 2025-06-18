@@ -1,5 +1,5 @@
 import express from "express";
-import { MercadoPagoConfig, Preference } from "mercadopago";
+import { sendDiscordWebhook } from "./utils";
 
 const app = express();
 
@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 const PORT = Number(process.env.PORT) || 3000;
 
 app.post("/api/v1/payment/webhook", (req, res) => {
-  console.log(req);
+  console.log(JSON.stringify(req.body));
   sendDiscordWebhook("Test");
 
   res.json({ message: "ok" });

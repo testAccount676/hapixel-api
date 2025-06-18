@@ -16,3 +16,5 @@ function sendDiscordWebhook(content: string) {
     }),
   }).catch(console.log);
 }
+
+export { sendDiscordWebhook };
